@@ -1,3 +1,3 @@
-# React Tutorial
+# React Fundmentals
 
 React JS Fundmentals Coure
