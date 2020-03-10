@@ -26,9 +26,9 @@ export default class MovieList extends Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <div>
+      <div className="MovieList">
         <h3>data fetch using axios - async / await</h3>
-        <section className='container'>
+        <section className='MovieList__container'>
           {isLoading 
             ? (
               <div className='loader'>

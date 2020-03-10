@@ -17,15 +17,13 @@ export default class Counter extends Component {
       number: current.number + 1 ,
       foo: {
         ...current.foo,
-        foobar: 2
+        foobar: current.foo.foobar + 1
       }
     }))
   };
-
-  // ... 은 javascript의 전개 연산자
-  // 기존의 객체안에 내용을 해당위치에다가 풀어준다.
-  // immutable.js , immer.js 로 작업을 간단히
-  // this.sate 는 사용하지 않는것이 좋다
+  // 비구조화 할당 문법
+  // const { current } = this.state 
+  // ... 은 javascript의 전개 연산자. 기존의 객체안에 내용을 해당위치에다가 풀어준다.
 
   handleDecrease = () => {
     this.setState({
@@ -33,13 +31,14 @@ export default class Counter extends Component {
     })
   }
 
-  handleIncreaseError = () => {
+  handleFooIncrease = () => {
     this.setState({
       foo: {
-        foobar: 2
+        foobar: this.state.foo.foobar + 1
       }
     })
   }
+   // this.state 는 사용하지 않는것이 좋다.
   
   render() {
     return (
@@ -50,7 +49,7 @@ export default class Counter extends Component {
 
         <div>foobar: {this.state.foo.foobar}</div>
         <button onClick={this.handleIncrease}>Increase</button>
-        <button onClick={this.handleIncreaseError}>Error</button> 
+        <button onClick={this.handleFooIncrease}>this.state fooIncrese</button> 
       </div>
     )
   }
